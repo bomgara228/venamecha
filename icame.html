@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /* let obj = {
+            name: "Alex",
+            age: 20,
+        }
+        console.log(obj);
+        Object.defineProperties(obj, 'name', {
+            value: "Alex",
+            enumerable:false,
+        })
+        for (let key in obj) {
+            console.log(key, obj[key]);
+        }
+        console.log(obj); */
+        /* let person = Object.create({}, {
+            name: {
+                value: "Alex",
+                writable: true, // заменять свойства
+                configurable: false, //удалять свойства
+                enumerable: true,
+            },
+            age: {
+                value: 20,
+                enumerable:true,
+            }
+        });
+
+        for (let key in person) {
+            console.log(key, person[key]);
+        } */
+
+        /* function func(a){
+            return a*a;
+        }
+        равны между собой
+        let value =  a => a*a;*/
+
+        /* let obj = {
+            name: "Alex",
+            age:20,
+        } */
+        /* for (let key in obj) {
+            Object.defineProperty(obj, key, {
+                writable:false
+            })
+        } */
+        function Person(nameP, ageP){
+            this.name = nameP;
+            this.birthYear = ageP;
+            this.human = 'человек';
+            Object.defineProperties(this, {
+                newAge: {
+                    get() {
+                        console.log('age:' , new Date().getFullYear() - this.birthYear);
+                    },
+
+                    set(value){
+                        this.birthYear = value;
+                    }
+                }
+            })
+                
+        }
+        
+
+        let obj = {
+            name: 'Олег',
+            birthYear: 2000,
+            human: 'человек',
+            agenewAge: {
+                get() {
+                    console.log('age:' , new Date().getFullYear() - this.birthYear)
+                },
+                set(value){
+                    this.birthYear = value;
+                }
+        }
+        } 
+
+        /* let person1 = new Person('Alex', 25);
+        console.log(person1);
+        let person2 = new Person('Лёха', 33);
+        console.log(person2);
+        let person3 = new Person('Генадий', 19);
+        console.log(person3);
+        let person4 = new Person('Сергей', 24);
+        console.log(person4); */
+
+       /*  let mass = [];
+        for (let i = 0; i < 100; i++) {
+            mass.push(new Person('Мария', 25))
+        }
+        console.log(mass); */
+
+        let user = new Person('Мария', 2000);
+        /* user.age = 26; */
+        
+    </script> 
+</body>
+</html>

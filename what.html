@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oof {
+            width: 200px;
+            height:  200px;
+            background-color: black ;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        function Kub(){
+            this._el = document.createElement('div');  
+            this._width = '200px';
+            this._el.style.width = '200px';
+            this._el.classList.add('oof');
+            document.body.append(this._el);
+
+            Object.defineProperties(this, {
+                newWidth: { 
+                    get() {
+                        console.log(this._width);
+                    },
+                    set(newWidth) {
+                        this._width = newWidth;
+                        this._el.style.width = `${newWidth}px`
+                    }
+                }
+            })
+            
+        }
+        let block = new Kub();
+    </script>
+</body>
+</html>
